@@ -1,0 +1,291 @@
+
+<html>
+<head>
+    <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aryaman's Portfolio</title>
+  <style>
+    :root {
+      --bg: #1e1e2f;
+      --accent: #ff00cc;
+      --glow: #00f0ff;
+      --text: #f5f5f5;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      cursor: none;
+    }
+
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* ✨ FLOATING BLOBS */
+    body::before, body::after {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, var(--accent), transparent);
+      border-radius: 50%;
+      animation: float 15s ease-in-out infinite alternate;
+      opacity: 0.3;
+      z-index: 0;
+    }
+
+    body::before {
+      top: -100px;
+      left: -100px;
+      animation-delay: 0s;
+    }
+
+    body::after {
+      bottom: -100px;
+      right: -100px;
+      animation-delay: 5s;
+    }
+
+    @keyframes float {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(100px, 100px); }
+    }
+
+    /* 🖱️ CUSTOM CURSOR */
+    .cursor {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--glow);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.1s ease;
+      mix-blend-mode: difference;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(45deg, #ff00cc, #3333ff);
+      color: white;
+    }
+
+    header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid var(--glow);
+      box-shadow: 0 0 20px var(--glow);
+      margin-bottom: 10px;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px var(--accent);
+    }
+
+    nav {
+      margin-top: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--glow);
+    }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+      z-index: 1;
+      position: relative;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: var(--accent);
+      text-shadow: 1px 1px var(--glow);
+    }
+
+    .section-card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 25px;
+      border-radius: 15px;
+      margin-bottom: 40px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+    }
+
+    .project-card {
+      background: #111;
+      border-left: 6px solid var(--accent);
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 10px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 15px var(--glow);
+    }
+
+    .project-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 25px var(--accent);
+    }
+
+    .project-card h3 {
+      margin-bottom: 10px;
+      color: var(--glow);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    th, td {
+      border: 1px solid var(--glow);
+      padding: 12px;
+      color: var(--text);
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background: #000;
+      color: var(--text);
+      border: 1px solid var(--accent);
+      border-radius: 5px;
+    }
+
+    form button {
+      background: var(--accent);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      margin-top: 10px;
+      font-weight: bold;
+      box-shadow: 0 0 10px var(--glow);
+      cursor: pointer;
+    }
+
+    iframe {
+      margin-top: 20px;
+      width: 100%;
+      height: 250px;
+      border: 2px dashed var(--glow);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #111;
+      color: var(--glow);
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+
+<header>
+  <img src="kitt.png" alt="Profile">
+  <h1>Aryaman Kumar</h1>
+  <p>Funky Coder ✨ Full Stack | Cloud | Creative CSS</p>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section id="about">
+    <h2>👾 About Me</h2>
+    <div class="section-card">
+      <p>Hey! I'm Aryaman from Amritsar, a CSE student at KIIT DU. I like building cool stuff, messing with code, and turning static HTML into neon-powered eye candy. I vibe with tech, design, and solving real-world problems with style.</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>🚀 Projects</h2>
+    <div class="section-card">
+      <div class="project-card">
+        <h3>🕹️ Joystick Mouse</h3>
+        <p>A mouse emulator using Arduino and a joystick. Coded in Python with serial magic. For when you’re too cool for touchpads.</p>
+        <p><strong>Tech:</strong> Arduino UNO, Python, Serial</p>
+      </div>
+      <div class="project-card">
+        <h3>💬 Twitter Sentiment Analyzer</h3>
+        <p>Classifies tweets as angry or awesome. Uses NLP and ML to understand your rants.</p>
+        <p><strong>Tech:</strong> Python, scikit-learn, NLTK</p>
+      </div>
+      <div class="project-card">
+        <h3>🌐 This Funky Portfolio</h3>
+        <p>You're looking at it. HTML5 + CSS3 magic. Custom cursor, blobs, and glowy vibes.</p>
+        <p><strong>Tech:</strong> HTML, CSS, Creativity</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>🛠️ Skills</h2>
+    <div class="section-card">
+      <table>
+        <tr><th>Category</th><th>Skills</th></tr>
+        <tr><td>Languages</td><td>C, C++, Java, Python, JavaScript, HTML, SQL</td></tr>
+        <tr><td>Platforms</td><td>RDBMS, Arduino</td></tr>
+        <tr><td>Cloud</td><td>AWS Cloud Foundations, AWS Architecting</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>📬 Contact</h2>
+    <div class="section-card">
+      <form>
+        <input type="text" placeholder="Name" required />
+        <input type="email" placeholder="Email" required />
+        <textarea placeholder="What's up?" rows="4" required></textarea>
+        <button type="submit">Send Vibes</button>
+      </form>
+      <p>Email: pythonban@outlook.com</p>
+      <p>Phone: +91 9779060493</p>
+      <iframe src="https://www.google.com/maps?q=Shivala+Colony,+Amritsar&output=embed"></iframe>
+    </div>
+  </section>
+</main>
+
+<footer>
+  💻 Made by Aryaman © 2025
+</footer>
+
+<script>
+  const cursor = document.getElementById('cursor');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.pageX + 'px';
+    cursor.style.top = e.pageY + 'px';
+  });
+</script>
+
+</body>
+</html>
